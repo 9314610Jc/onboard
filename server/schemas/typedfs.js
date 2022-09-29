@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 
 const typeDefs = gql`
-  type Company {
+  type Company{
    _id:ID
    companyName: String
    stockSymbol: String
@@ -16,6 +16,12 @@ const typeDefs = gql`
    developer:String
   goesLive: String
   checklist: [Checklist]
+}
+
+  type Query {
+  companies: [Company]
+checklist: [Checklist]
+  
   }
 `;
 

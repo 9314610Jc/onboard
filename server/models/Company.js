@@ -1,5 +1,6 @@
-const { Schema } = require('mongoose');
-const Checklistschema = require ('./Checklist')
+const { Schema, model, Types } = require('mongoose');
+const Checklist = require('./Checklist')
+
 const companySchema = new Schema({
 
     companyName: {
@@ -43,13 +44,12 @@ const companySchema = new Schema({
         type: Date
     },
 
-    checklist:{
-        [
-            Checklistschema
-        ]
-    }
+   checklist: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Checklist'
+   }]
 
-})
+    })
 
 const Company = model('Company', companySchema)
-module.exports = companySchema;
+module.exports = Company;

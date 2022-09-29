@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose');
+const { Schema,model, Types} = require('mongoose');
 
 const Checklistschema = new Schema({
 
@@ -34,9 +34,16 @@ const Checklistschema = new Schema({
     stockInformation: {
         type: Boolean,
         default: false
-    }
+    },
+    company:
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Company'
+        }
+    
 })
 
+const Checklist = model('Checklist', Checklistschema);
 
 
-module.exports = Checklistschema;
+module.exports = Checklist;

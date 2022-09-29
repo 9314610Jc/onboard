@@ -1,9 +1,11 @@
+const {Company, Checklist} = require('../models')
+
 const resolvers = {
-    Query: {
-      helloWorld: () => {
-        return 'Hello world!';
-      }
+  Query: {
+    companies: async () => {
+      return Company.find().sort({ createdAt: -1 });
     }
-  };
-  
-  module.exports = resolvers;
+  }
+};
+
+module.exports = resolvers;
