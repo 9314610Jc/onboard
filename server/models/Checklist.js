@@ -34,9 +34,10 @@ const Checklistschema = new Schema({
     stockInformation: {
         type: Boolean,
         default: false
-    }
-})
-
-
-
+    },
+    
+      
+      }
+    );
+    
 module.exports = Checklistschema;

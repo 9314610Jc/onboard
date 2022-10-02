@@ -1,9 +1,18 @@
+const {Company, Checklist} = require('../models')
+
 const resolvers = {
     Query: {
-      helloWorld: () => {
-        return 'Hello world!';
+     companies: async()=>{
+      return Company.find().sort({createdAt:-1})
+      .populate('checklist');
+     },
+
+     company: async (parent, { _id }) => {
+        return Company.findOne({ _id })
+        .populate('checklist');
       }
-    }
+      }
+    
   };
   
   module.exports = resolvers;
