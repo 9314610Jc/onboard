@@ -41,7 +41,7 @@ const companySchema = new Schema({
         type: String
     },
     goesLive: {
-        type: Date
+        type: String
     },
 
    checklist: [{
